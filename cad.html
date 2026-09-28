@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SFRP CAD</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #09090b;
+      color: #e5e5e7;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      height: 70px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      border-bottom: 1px solid #202024;
+      background: #0c0c0e;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 700;
+      color: #f1f1f3;
+    }
+
+    main {
+      width: min(1050px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 45px 0 70px;
+    }
+
+    .section {
+      margin-bottom: 42px;
+    }
+
+    .section-title {
+      margin: 0 0 17px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #eeeeef;
+    }
+
+    .server-card {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 23px;
+      background: #111113;
+      border: 1px solid #242428;
+      border-radius: 15px;
+    }
+
+    .server-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .server-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #1d1d21;
+      border: 1px solid #303036;
+      border-radius: 12px;
+      color: #d5d5d9;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .server-name {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #ededf0;
+    }
+
+    .server-status {
+      margin: 0;
+      font-size: 13px;
+      color: #6f6f76;
+    }
+
+    .server-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-shrink: 0;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .join-button {
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 9px;
+      background: #293b92;
+      color: #e1e3f5;
+      font-size: 14px;
+    }
+
+    .join-button:hover {
+      background: #3449a8;
+    }
+
+    .manage-button {
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 9px;
+      background: #19191c;
+      border: 1px solid #303036;
+      color: #c7c7cb;
+      font-size: 14px;
+    }
+
+    .manage-button:hover {
+      background: #222226;
+    }
+
+    .departments-card {
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      background: #111113;
+      border: 1px solid #242428;
+      border-radius: 15px;
+    }
+
+    .empty-state {
+      max-width: 420px;
+    }
+
+    .empty-icon {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #1a1a1d;
+      border: 1px solid #2a2a2f;
+      color: #77777e;
+      font-size: 18px;
+    }
+
+    .empty-title {
+      margin: 0 0 8px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #dddddf;
+    }
+
+    .empty-description {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #66666d;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        height: 62px;
+        padding: 0 18px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      main {
+        width: calc(100% - 24px);
+        padding: 30px 0 50px;
+      }
+
+      .section {
+        margin-bottom: 32px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .server-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .server-actions {
+        width: 100%;
+      }
+
+      .join-button,
+      .manage-button {
+        flex: 1;
+      }
+
+      .departments-card {
+        min-height: 210px;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      SFRP CAD
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section">
+
+      <h2 class="section-title">
+        My Servers
+      </h2>
+
+      <div class="server-card">
+
+        <div class="server-info">
+
+          <div class="server-icon">
+            S
+          </div>
+
+          <div>
+            <p class="server-name">
+              South Florida Roleplay
+            </p>
+
+            <p class="server-status">
+              0 in CAD
+            </p>
+          </div>
+
+        </div>
+
+        <div class="server-actions">
+
+          <button
+            class="join-button"
+            onclick="joinCAD()">
+            Join CAD
+          </button>
+
+          <button
+            class="manage-button"
+            onclick="manageCAD()">
+            Manage
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <h2 class="section-title">
+        My Departments
+      </h2>
+
+      <div class="departments-card">
+
+        <div class="empty-state">
+
+          <div class="empty-icon">
+            —
+          </div>
+
+          <p class="empty-title">
+            No Departments
+          </p>
+
+          <p class="empty-description">
+            You aren't currently assigned to any departments.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    function joinCAD() {
+      alert("CAD joining will be connected to the server system.");
+    }
+
+    function manageCAD() {
+      alert("Management panel coming soon.");
+    }
+
+  </script>
+
+</body>
+</html>
